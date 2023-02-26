@@ -2,7 +2,7 @@
 if (!isset($_SESSION)) {
   session_start();
 }
-require('../crud/userCrud.php');
+require('crud/userCrud.php');
 
 if (isset($_POST['submit'])) {
   $user = new userCrud();
@@ -11,13 +11,12 @@ if (isset($_POST['submit'])) {
     $user->setUsername($_POST['username']);
   }
 
-  $existingUsers = $user->getUserByUsername($user->getUsername());
+  $kontrollimiUserit = $user->kontrolloUser();
 
-  if (!empty($existingUsers)) {
+  if ($kontrollimiUserit == true && isset($_POST['username'])) {
     $_SESSION['userEkziston'] = true;
-    $_SESSION['name'] = $existingUsers[0]['emri'];
-    $_SESSION['username'] = $existingUsers[0]['username'];
-    $_SESSION['email'] = $existingUsers[0]['email'];
+    $_SESSION['name'] = $_POST['name'];
+    $_SESSION['email'] = $_POST['email'];
   } else {
     $user->setEmri($_POST['name']);
     $user->setEmail($_POST['email']);
@@ -30,6 +29,8 @@ if (isset($_POST['submit'])) {
   }
 }
 ?>
+
+
 
 <!-- Rest of the code goes here -->
 
@@ -44,7 +45,7 @@ if (isset($_POST['submit'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign up | Lovesac</title>
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="../messagesStyle.css" />
     <link rel="shortcut icon" type="x-icon" href="img/logo/logo_200x200.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
@@ -53,7 +54,7 @@ if (isset($_POST['submit'])) {
 </head>
 <body>
 
-<?php include 'adminHeader.php'; ?>
+<?php include 'header.php'; ?>
      
     <section class="bodyy">
         <div class="login">
@@ -107,7 +108,7 @@ if (isset($_POST['submit'])) {
     </section>
 
     <?php 
-    include 'footer1.php';
+    include 'footer.php';
     ?>
 
     <script src="script1.js"></script>
