@@ -130,3 +130,87 @@ function validimiSignUp() {
     return true;
   }
   
+  function validimiBuyNowForm() {
+    const emriREGEX = /^[A-Za-z]+$/
+    const mbiemriREGEX = /^[A-Za-z]+$/
+    const emailREGEX = /^[\w.+-]+@[\w.-]+\.[a-zA-Z]{2,}$/
+    let uname = document.BuyNowForm.name;
+    let usurname = document.BuyNowForm.surname;
+    let uusername = document.BuyNowForm.username;
+    let uemail = document.BuyNowForm.email;
+    let ucontactNumber = document.BuyNowForm.contactNumber;
+    let uaddress = document.BuyNowForm.address;
+    let uemriProduktit = document.BuyNowForm.emriProduktit;
+    let usasia = document.BuyNowForm.sasia;
+    let ungjyra = document.BuyNowForm.ngjyra;
+    let ucoupon = document.BuyNowForm.coupon;
+
+    if (uname.value == "") {
+      alert("Please enter your name!");
+      uname.focus();
+      return false;
+    }
+    if (!emriREGEX.test(uname.value)) {
+      alert("Name must contain letters only!");
+      uname.focus();
+      return false;
+    } 
+    if (usurname.value == "") {
+      alert("Please enter your surname!");
+      usurname.focus();
+      return false;
+    }
+    if (!mbiemriREGEX.test(usurname.value)) {
+      alert("Surname must contain letters only!");
+      usurname.focus();
+      return false;
+    } 
+    if (uemail.value == "") {
+      alert("Email can't be blank!");
+      uemail.focus();
+      return false;
+    }
+    if (!emailREGEX.test(uemail.value)) {
+      alert("Please enter a valid email email!");
+      uemail.focus();
+      return false;
+    }
+    if (uusername.value == "") {
+      alert("Please enter your username!");
+      uusername.focus();
+      return false;
+    }
+    if (ucontactNumber.value == "") {
+      alert("Please enter your contact number!");
+      ucontactNumber.focus();
+      return false;
+    }
+    if (uaddress.value == "") {
+      alert("Please enter your address!");
+      uaddress.focus();
+      return false;
+    }
+    if (uemriProduktit.value == "") {
+      alert("Please enter the product's name!");
+      uemriProduktit.focus();
+      return false;
+    }
+    if (usasia.value == "") {
+      alert("Please enter the quantity!");
+      usasia.focus();
+      return false;
+    }
+    if (ungjyra.value == "") {
+      alert("Please enter the color!");
+      ungjyra.focus();
+      return false;
+    }
+    if (ucoupon.value == "") {
+      alert("Please enter your surname!");
+      ucoupon.focus();
+      return false;
+    }
+   
+  
+    return true;
+  }
