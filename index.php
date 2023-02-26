@@ -1,12 +1,21 @@
 <?php 
 
 session_start();
-require '../dbconnect.php';
+require 'dbconnect.php';
 $db = new dbConnect();
 $pdo = $db->connDB();
 $query = $pdo->query('SELECT * from products');
 $products = $query->fetchAll();
 
+// if (isset($_POST['submiti'])) { // check if the buy now button was clicked
+//     if (!isset($_SESSION['userID'])) { // check if the user is not logged in
+//         header("Location: login.php"); // redirect to the login page
+//         exit();
+//     } else { // if the user is logged in, redirect to the buy now page
+//         header("Location: completeBuying.php");
+//         exit();
+//     }
+// }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +24,7 @@ $products = $query->fetchAll();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lovesac</title>
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="slider.css">
     <link rel="shortcut icon" type="x-icon" href="img/logo/logo_200x200.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
@@ -24,7 +33,7 @@ $products = $query->fetchAll();
 </head>
 <body>
  
-<?php include 'adminHeader.php'; ?>
+    <?php include 'header.php'; ?>
     <section id="hero">
         <h4>Trade-in-offer</h4>
         <h2>Super value deals</h2>
@@ -70,7 +79,7 @@ $products = $query->fetchAll();
         <div class="pro-container">
             <?php foreach ($products as $product):?>
             <div class="pro">
-               <img src="img/<?php echo $product['image']; ?>" alt="product image">
+               <a href="<?php echo isset($_SESSION['username']) ? 'completeBuying.php' : 'login.php'; ?>"><img src="img/<?php echo $product['image']; ?>" alt="product image"></a> 
                 <div class="des">
                     <span>Lovesac</span>
                     <h5><?php echo $product ['title']; ?></h5>
@@ -83,7 +92,9 @@ $products = $query->fetchAll();
                     </div>
                     <h4><?php echo $product ['price']; ?></h4>
                 </div>
-                <input type="submit" value="Buy now" name='login'>
+                <input type="submit" value="Buy now" name="submiti" onclick="<?php echo isset($_SESSION['username']) ? "window.location.href='completeBuying.php'" : "window.location.href='login.php'"; ?>">
+
+                <!-- <input type="submit" value="Buy now" name='submiti' onclick="window.location.href='completeBuying.php'" > -->
             </div>
             <?php endforeach; ?>
             </div>
@@ -110,7 +121,7 @@ $products = $query->fetchAll();
             <button <a onclick="window.location.href='shop.php'"href="#" class="white"></a>Learn more</button>
         </div>
     </section>
-    <?php include 'footer1.php'; ?>
+    <?php include 'footer.php'; ?>
 
     <script src="script.js"></script>
     <script src="slider.js"></script>
