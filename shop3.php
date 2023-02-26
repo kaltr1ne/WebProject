@@ -1,10 +1,10 @@
 <?php 
 
 session_start();
-require '../dbconnect.php';
+require 'config/dbconnect.php';
 $db = new dbConnect();
 $pdo = $db->connDB();
-$query = $pdo->query('SELECT* from shop WHERE products_ID between 37 and 100');
+$query = $pdo->query('SELECT* from shop WHERE products_ID between 37 and 48');
 $shop = $query->fetchAll();
 
 ?>
@@ -15,7 +15,7 @@ $shop = $query->fetchAll();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lovesac</title>
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" type="x-icon" href="img/logo/logo_200x200.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <link rel="stylesheet" href="https://fontawesome.com/icons/circle-xmark?s=solid&f=classic">
@@ -24,7 +24,7 @@ $shop = $query->fetchAll();
 </head>
 <body>
 
-<?php include 'adminHeader.php'; ?>
+<?php include 'header.php'; ?>
 
     <section id="page-header">
         <h2>#freeShipping</h2>
@@ -35,7 +35,7 @@ $shop = $query->fetchAll();
         <div class="pro-container">
             <?php foreach ($shop as $shop1):?>
             <div class="pro">
-               <img src="../img/<?php echo $shop1['image']; ?>" alt="product image">
+               <img src="img/<?php echo $shop1['image']; ?>" alt="product image">
                 <div class="des">
                     <span>Lovesac</span>
                     <h5><?php echo $shop1 ['title']; ?></h5>
@@ -48,7 +48,7 @@ $shop = $query->fetchAll();
                     </div>
                     <h4><?php echo $shop1 ['price']; ?></h4>
                     </div>
-                <input type="submit" value="Buy now" name='login'>
+                <input type="submit" value="Buy now" name="submiti" onclick="<?php echo isset($_SESSION['username']) ? "window.location.href='completeBuying.php'" : "window.location.href='login.php'"; ?>">
             </div>
             <?php endforeach; ?>
             </div>
@@ -58,11 +58,11 @@ $shop = $query->fetchAll();
     <section id="pageination" class="section-p1">
         <a onclick="window.location.href='shop.php'" href="#">1</a>
         <a onclick="window.location.href='shop2.php'" href="#" >2</a>
-        <a onclick="window.location.href='shop3.php'" href="#">3</a>
+        <a onclick="window.location.href='shop3.php'" href="#">3</i></a>
     </section>
     
     <?php 
-    include 'footer1.php';
+    include 'footer.php';
     ?>
     
 
