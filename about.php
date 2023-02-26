@@ -19,7 +19,7 @@ if (!isset($_SESSION)) {
 </head>
 <body>
 
-<?php include 'adminHeader.php'; ?>
+<?php include 'header.php'; ?>
 
     <section id="page-header" class="about-header">
         <h2>#KnowUs</h2>
@@ -69,7 +69,7 @@ if (!isset($_SESSION)) {
 
    
     <?php 
-    include 'footer1.php';
+    include 'footer.php';
     ?>
     
 
