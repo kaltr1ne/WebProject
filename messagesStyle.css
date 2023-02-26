@@ -1,0 +1,35 @@
+.mesazhiGabimStyle {
+    display: flex;
+    gap: 1em;
+    border: none;
+    background: red;
+    border-radius: 25px;
+    color: White;
+    width: fit-content;
+    padding: 0.5em 1em;
+  }
+  
+  .mesazhiSuksesStyle {
+    display: flex;
+    gap: 1em;
+    border: none;
+    background-color: #3aa27e;
+    color: white;
+    width: fit-content;
+    padding: 0.5em 1em;
+    border-radius: 25px;
+  }
+  
+  #mbyllMesazhin {
+    border: none;
+    background: none;
+    color: black;
+    padding: 2px;
+  }
+  
+  #mbyllMesazhin:hover {
+    color: rgb(101, 88, 88);
+    color: black;
+    cursor: pointer;
+  }
+  
