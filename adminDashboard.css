@@ -1,0 +1,118 @@
+.containerDashboardP {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width: 300px;
+    flex-direction: column;
+    gap: 2em;
+    flex-wrap: wrap;
+  }
+  .containerDashboardP tr th {
+    background-color: #46b8de;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+  }
+  
+  .containerDashboardP th,
+  .containerDashboardP td {
+    padding: 12px 15px;
+  }
+  
+  .containerDashboardP tr td {
+    border-bottom: 1px solid #dddddd;
+  }
+  .emriP {
+    width: 30em;
+  }
+  
+  .edito {
+    padding: 0.4em;
+    background-color: #45c263;
+    border: none;
+    border-radius: 2px;
+    text-align: center;
+  }
+  
+  .fshij {
+    padding: 0.4em;
+    background-color: #e33437;
+    border: none;
+    border-radius: 2px;
+    text-align: center;
+  }
+  
+  .porositP {
+    margin-top: 0.4em;
+    padding: 0.4em;
+    background-color: #c9d51a;
+    border: none;
+    border-radius: 2px;
+    text-align: center;
+  }
+  
+  .titulliPershkrim {
+    display: flex;
+    flex-direction: column;
+    color: #41b4df;
+    text-align: center;
+    margin-top: 2em;
+  }
+  
+  .adminNav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    background-color: gray;
+  }
+  
+  .adminNav-links {
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+  }
+  
+  .adminNav-item a {
+    font-size: 1em;
+    color: #00113f;
+  }
+  .adminNav-item a:hover {
+    font-weight: bold;
+  }
+  
+  .button {
+    border: none;
+    box-shadow: 0 0 10px #d3d3d3;
+    background-color: white;
+    color: black;
+    padding: 10px;
+    width: 10em;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  
+  .button:hover {
+    background-color: #01df93;
+    color: white;
+  }
+  
+  .test {
+    display: flex;
+    margin-top: 1em;
+    gap: 1em;
+  }
+  a{
+    text-decoration: none;
+    color: black;
+  }
+h1{
+    padding-top: 1px;
+}
+img {
+  width: 150px;
+}
+  
